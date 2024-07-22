@@ -1,4 +1,10 @@
 @font-face {
-  font-family: 'B Zar Regular';
-  src: url(./fonts/B\ ZAR.TTF);
+  font-family: "B Zar Regular";
+  src: url("./fonts/B\ ZAR.TTF") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "B Zar Regular", sans-serif;
 }

@@ -1,37 +1,48 @@
 import React from "react";
 import { UserTableProps } from "../types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash, faEye } from "@fortawesome/free-solid-svg-icons";
+import { convertToPersianNumbers } from "../utilities/utils";
 
-const UserTable: React.FC<UserTableProps> = ({ users, onEdit, onDelete }) => {
+const UserTable: React.FC<UserTableProps> = ({
+  users,
+  onEdit,
+  onDelete,
+  onView,
+}) => {
   return (
-    <table className="table">
+    <table dir="rtl" className="table table-bordered text-center w-75">
       <thead>
         <tr>
-          <th>No.</th>
-          <th>Name</th>
-          <th>Surname</th>
-          <th>National Id</th>
-          <th>Actions</th>
+          <th>ردیف</th>
+          <th>نام</th>
+          <th>نام خانوادگی</th>
+          <th>کد ملی</th>
+          <th>عملیات</th>
         </tr>
       </thead>
       <tbody>
         {users.map((user, index) => (
           <tr key={user.id}>
-            <td>{index + 1}</td>
+            <td>{convertToPersianNumbers(index + 1)}</td>
             <td>{user.name}</td>
             <td>{user.surname}</td>
-            <td>{user.nationalId}</td>
+            <td>{convertToPersianNumbers(user.nationalId)}</td>
             <td>
-              <button
-                className="btn btn-primary mr-2"
-                onClick={() => onEdit(user)}
-              >
-                Edit
+              <button className="btn btn-info" onClick={() => onView(user)}>
+                <FontAwesomeIcon icon={faEye} />
               </button>
               <button
-                className="btn btn-danger"
+                className="btn btn-primary mr-2 mx-1"
+                onClick={() => onEdit(user)}
+              >
+                <FontAwesomeIcon icon={faEdit} />
+              </button>
+              <button
+                className="btn btn-danger mr-2"
                 onClick={() => onDelete(user.id)}
               >
-                Delete
+                <FontAwesomeIcon icon={faTrash} />
               </button>
             </td>
           </tr>

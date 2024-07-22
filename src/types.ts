@@ -15,4 +15,5 @@ export interface UserTableProps {
   users: User[];
   onEdit: (user: User) => void;
   onDelete: (id: number) => void;
+  onView: (user: User) => void;
 }
