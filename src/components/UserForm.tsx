@@ -66,7 +66,7 @@ const UserForm: React.FC<UserFormProps> = ({
             <h5 className="modal-title">
               {selectedUser ? "ویرایش کاربر" : "افزودن کاربر"}
             </h5>
-            <button type="button" className="close" onClick={onClose}>
+            <button type="button" className="close me-auto" onClick={onClose}>
               <span>&times;</span>
             </button>
           </div>
@@ -118,7 +118,7 @@ const UserForm: React.FC<UserFormProps> = ({
                 )}
               </div>
             </div>
-            <div className="modal-footer">
+            <div className="modal-footer d-inline">
               <button
                 type="button"
                 className="btn btn-secondary"
